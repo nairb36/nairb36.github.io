@@ -1,0 +1,189 @@
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <p class="greeting">Hi, I'm</p>
+        <h1>Bharath Rajiv Nair</h1>
+        <h2><span id="rotating-title"></span></h2>
+        <p class="tagline">
+          Building real-time perception systems for autonomous robots.
+          Specializing in 3D perception, sensor fusion, and multi-object tracking.
+        </p>
+        <div class="cta">
+          <a href="#projects" class="btn btn-primary">View Projects</a>
+          <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="/profile.jpeg" alt="Bharath Rajiv Nair" width="280" height="280" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const titles = [
+    'Robotics Software Engineer',
+    'Perception Engineer',
+    'Research Engineer',
+    'Robotics AI Engineer',
+  ];
+  let index = 0;
+  const el = document.getElementById('rotating-title');
+  if (el) {
+    el.textContent = titles[0];
+
+    async function typeTitle(text: string) {
+      // Delete current text
+      const current = el!.textContent || '';
+      for (let i = current.length; i >= 0; i--) {
+        el!.textContent = current.slice(0, i);
+        await new Promise(r => setTimeout(r, 40));
+      }
+      // Type new text
+      for (let i = 0; i <= text.length; i++) {
+        el!.textContent = text.slice(0, i);
+        await new Promise(r => setTimeout(r, 60));
+      }
+    }
+
+    setInterval(async () => {
+      index = (index + 1) % titles.length;
+      await typeTitle(titles[index]);
+    }, 3000);
+  }
+</script>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+  }
+
+  .hero-content {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .hero-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+  }
+
+  .hero-text {
+    flex: 1;
+  }
+
+  .hero-image {
+    flex-shrink: 0;
+  }
+
+  .hero-image img {
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--color-border);
+    box-shadow: 0 0 40px var(--color-accent-glow);
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  .hero-image img:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 60px var(--color-accent-glow);
+  }
+
+  @media (max-width: 768px) {
+    .hero-inner {
+      flex-direction: column-reverse;
+      text-align: center;
+    }
+    .hero-image img {
+      width: 200px;
+      height: 200px;
+    }
+    .cta {
+      justify-content: center;
+    }
+  }
+
+  .greeting {
+    font-family: var(--font-mono);
+    color: var(--color-accent);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+
+  h2 {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-weight: 400;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  #rotating-title::after {
+    content: '|';
+    animation: blink 0.8s infinite;
+    color: var(--color-accent);
+    font-weight: 300;
+    margin-left: 2px;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .tagline {
+    color: var(--color-text-muted);
+    font-size: 1.1rem;
+    max-width: 540px;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+
+  .cta {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .btn {
+    padding: 0.75rem 1.75rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+
+  .btn-primary {
+    background: var(--color-accent);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: #2563eb;
+    color: white;
+  }
+
+  .btn-secondary {
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--color-green);
+    color: var(--color-green);
+    background: var(--color-green-dim);
+  }
+</style>

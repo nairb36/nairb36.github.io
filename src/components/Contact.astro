@@ -1,0 +1,114 @@
+<section id="contact" class="section">
+  <h2 class="section-title">Get in Touch</h2>
+  <p class="contact-text">
+    I enjoy connecting with people who are passionate about robotics, perception, and intelligent systems.
+    Whether it's a conversation about 3D sensing, a collaboration, or just a shared curiosity &mdash; I'd love to hear from you.
+  </p>
+  <div class="contact-links">
+    <a href="mailto:bharathnair2637@gmail.com" class="contact-link">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      bharathnair2637@gmail.com
+    </a>
+    <a href="https://github.com/nairb36" target="_blank" rel="noopener noreferrer" class="contact-link">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      github.com/nairb36
+    </a>
+    <a href="https://www.linkedin.com/in/brnair2637" target="_blank" rel="noopener noreferrer" class="contact-link">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+      LinkedIn
+    </a>
+    <a href="tel:+16462075384" class="contact-link">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      +1 (646) 207-5384
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>Built with Astro. Bharath Rajiv Nair.</p>
+</footer>
+
+<style>
+  .section {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 6rem 2rem;
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: var(--color-accent);
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+  }
+
+  .contact-text {
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+    max-width: 480px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.7;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    padding: 0.6rem 1.25rem;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    transition: all 0.2s;
+  }
+
+  .contact-link:nth-child(1):hover {
+    color: var(--color-rose);
+    border-color: var(--color-rose);
+    background: var(--color-rose-dim);
+  }
+  .contact-link:nth-child(2):hover {
+    color: var(--color-text);
+    border-color: var(--color-text-muted);
+    background: var(--color-surface-2);
+  }
+  .contact-link:nth-child(3):hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    background: var(--color-accent-glow);
+  }
+  .contact-link:nth-child(4):hover {
+    color: var(--color-green);
+    border-color: var(--color-green);
+    background: var(--color-green-dim);
+  }
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  footer p {
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+  }
+</style>
