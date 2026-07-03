@@ -2,54 +2,112 @@
 const experiences = [
   {
     company: 'ArcBest Technologies',
-    role: 'Robotics Software Engineer, Perception',
-    location: 'Fort Smith, AR',
+    role: 'Robotics Software Engineer, Perception — R&D Lab',
+    location: 'Fort Smith, AR 🇺🇸',
     period: 'Jul 2022 - Present',
     logo: '/logos/arcbest.svg',
-    highlights: [
-      'Designed and deployed a real-time 3D collision avoidance system in C++/ROS using multi-LiDAR fusion, achieving >98% success rate in dynamic warehouse environments.',
-      'Architected a modular, configuration-driven multi-modal sensor calibration framework (camera-camera, camera-LiDAR, LiDAR-LiDAR), enabling fully remote calibration by teleoperators.',
-      'Enhanced a low-latency teleoperation pipeline with YOLOv8-based barcode detection for semi-autonomous scanning, improving operator efficiency by 17%.',
-      'Built a real-time LiDAR Bird\'s-Eye View (BEV) visualization system with dynamic ROI filtering for improved spatial awareness during teleoperation.',
-      'Integrated multi-modal perception sensors on NVIDIA Jetson Orin, building real-time perception pipelines using ROS and PCL.',
-      'Deployed robotic systems at the first two customer sites, ensuring reliable perception system performance.',
+    color: 'accent',
+    cards: [
+      {
+        title: 'Autonomous Forklift Perception',
+        desc: '3D perception pipeline for autonomous navigation and obstacle avoidance. Integrated comprehensive sensor suite including LiDARs, stereo cameras, and ToF sensors for warehouse operations.',
+      },
+      {
+        title: 'Perception Scope & Strategy',
+        desc: 'Led perception project scoping and decision-making, aligning sensor and algorithm choices with customer requirements and operational constraints.',
+      },
+      {
+        title: '3D Safety & Scanning Systems',
+        desc: 'Developed real-time 3D collision avoidance using multi-LiDAR fusion (>98% success rate) and YOLOv8-based barcode scanning for semi-autonomous teleoperation.',
+      },
+      {
+        title: 'Multi-Modal Sensor Calibration',
+        desc: 'Architected a modular, configuration-driven calibration framework (camera-camera, camera-LiDAR, LiDAR-LiDAR), enabling fully remote calibration by teleoperators.',
+      },
+      {
+        title: 'LiDAR BEV Visualization',
+        desc: 'Built a real-time Bird\'s-Eye View visualization system with dynamic ROI filtering for improved spatial awareness during teleoperation.',
+      },
+      {
+        title: 'Edge Deployment on NVIDIA Jetson',
+        desc: 'Integrated multi-modal perception sensors on Jetson Orin, building real-time pipelines using ROS and PCL. Deployed at the first two customer sites.',
+      },
     ],
   },
   {
     company: 'Amazon Robotics',
-    role: 'Applied Scientist Intern',
-    location: 'North Reading, MA',
+    role: 'Applied Scientist Intern, Virtual Systems',
+    location: 'North Reading, MA 🇺🇸',
     period: 'May 2021 - Aug 2021',
     logo: '/logos/amazon.svg',
-    highlights: [
-      'Developed a proof-of-concept simulation for realistic multi-agent warehouse motion (workers, pallet jacks, forklifts), enabling scalable layout optimization and robot throughput analysis.',
-      'Implemented multi-agent path planning, trajectory execution, and dynamic obstacle avoidance in Python.',
+    color: 'amber',
+    cards: [
+      {
+        title: 'Multi-Agent Warehouse Simulation',
+        desc: 'Built a proof-of-concept simulation for realistic multi-agent warehouse motion — workers, pallet jacks, forklifts — praised by the team\'s software architect for producing the most realistic entity motion they had seen in simulation.',
+      },
+      {
+        title: 'Path Planning & Obstacle Avoidance',
+        desc: 'Implemented multi-agent path planning, trajectory execution, and dynamic obstacle avoidance in Python, enabling scalable layout optimization and robot throughput analysis.',
+      },
+    ],
+  },
+  {
+    company: 'Singapore University of Technology and Design',
+    role: 'Research Assistant, ROAR Lab',
+    advisor: 'Prof. Mohan Rajesh Elara',
+    location: 'Singapore 🇸🇬',
+    period: 'Aug 2019 - Jun 2020',
+    logo: '/logos/sutd.svg',
+    color: 'cyan',
+    cards: [
+      {
+        title: 'sTetro-C Reconfigurable Robot',
+        desc: 'Worked on a self-reconfigurable service robot for autonomous staircase navigation and cleaning. Designed the reconfigurable cleaning mechanism and platform.',
+      },
+      {
+        title: 'Staircase Perception & Navigation',
+        desc: 'Selected and integrated sensors for staircase perception. Filed a design patent for the reconfigurable architecture.',
+      },
+      {
+        title: 'Publication',
+        desc: 'Contributed to a peer-reviewed paper in Expert Systems with Applications on staircase navigation using a self-reconfigurable service robot.',
+      },
     ],
   },
   {
     company: 'Purdue University',
-    role: 'Visiting Undergraduate Researcher',
-    location: 'West Lafayette, IN',
+    role: 'Visiting Research Student, Collaborative Robotics Lab',
+    advisor: 'Prof. Richard Voyles',
+    location: 'West Lafayette, IN 🇺🇸',
     period: 'Jan 2019 - May 2019',
     logo: '/logos/purdue.svg',
-    highlights: [
-      'Developed a neuromorphic neural network for tactile robotic skin in Python/Keras, optimizing printable, hardware-constrained analog designs; presented at ICRA 2021.',
+    color: 'purple',
+    cards: [
+      {
+        title: 'Neuromorphic Tactile Skin',
+        desc: 'Developed a neuromorphic neural network for tactile robotic skin in Python/Keras, optimizing printable, hardware-constrained analog designs.',
+      },
+      {
+        title: 'ICRA 2021 Publication',
+        desc: 'Research published at IEEE International Conference on Robotics and Automation (ICRA) 2021.',
+      },
     ],
   },
 ];
 ---
 
-<section id="experience" class="section">
-  <h2 class="section-title">Experience</h2>
-  <div class="timeline">
+<section id="experience" class="exp-section">
+  <h2 class="exp-section-title">Experience</h2>
+  <div class="exp-list">
     {experiences.map((exp) => (
-      <div class="timeline-item">
-        <div class="timeline-header">
+      <div class="exp-block" data-color={exp.color}>
+        <div class="exp-header">
           <div class="header-left">
             <img src={exp.logo} alt={exp.company} class="company-logo" width="44" height="44" />
             <div>
               <h3>{exp.company}</h3>
-              <p class="role">{exp.role}</p>
+              <p class="role">{exp.role}{exp.advisor && <em class="advisor"> ({exp.advisor})</em>}</p>
             </div>
           </div>
           <div class="meta">
@@ -57,31 +115,34 @@ const experiences = [
             <span class="location">{exp.location}</span>
           </div>
         </div>
-        <ul>
-          {exp.highlights.map((item) => (
-            <li>{item}</li>
+        <div class="card-grid">
+          {exp.cards.map((card) => (
+            <div class="work-card" data-color={exp.color}>
+              <h4>{card.title}</h4>
+              <p>{card.desc}</p>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     ))}
   </div>
 </section>
 
-<style>
-  .section {
+<style is:global>
+  #experience {
     max-width: var(--max-width);
     margin: 0 auto;
     padding: 6rem 2rem;
   }
 
-  .section-title {
+  #experience .exp-section-title {
     font-size: 1.75rem;
     font-weight: 600;
     margin-bottom: 2.5rem;
     letter-spacing: -0.02em;
   }
 
-  .section-title::after {
+  #experience .exp-section-title::after {
     content: '';
     display: block;
     width: 40px;
@@ -91,36 +152,24 @@ const experiences = [
     border-radius: 2px;
   }
 
-  .timeline {
+  #experience .exp-list {
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
+    gap: 3rem;
   }
 
-  .timeline-item {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
+  #experience .exp-block {
     border-left: 3px solid var(--color-border);
-    border-radius: 8px;
-    padding: 1.75rem;
-    transition: all 0.3s;
+    padding-left: 1.5rem;
+    transition: border-color 0.3s;
   }
 
-  .timeline-item:hover {
-    border-color: var(--color-accent-dim);
-    border-left-color: var(--color-accent);
-    background: var(--color-surface-hover);
-  }
+  #experience .exp-block[data-color="accent"] { border-left-color: var(--color-accent); }
+  #experience .exp-block[data-color="amber"] { border-left-color: var(--color-amber); }
+  #experience .exp-block[data-color="cyan"] { border-left-color: var(--color-cyan); }
+  #experience .exp-block[data-color="purple"] { border-left-color: var(--color-purple); }
 
-  .timeline-item:hover h3 {
-    color: var(--color-accent);
-  }
-
-  .timeline-item:hover li {
-    color: var(--color-text);
-  }
-
-  .timeline-header {
+  #experience .exp-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -128,77 +177,110 @@ const experiences = [
     gap: 1rem;
   }
 
-  .header-left {
+  #experience .header-left {
     display: flex;
     align-items: flex-start;
     gap: 1rem;
   }
 
-  .company-logo {
+  #experience .company-logo {
     border-radius: 8px;
     flex-shrink: 0;
     margin-top: 2px;
   }
 
-  h3 {
+  #experience h3 {
     font-size: 1.15rem;
     font-weight: 600;
   }
 
-  .role {
+  #experience .role {
     color: var(--color-accent);
     font-size: 0.9rem;
     margin-top: 0.25rem;
   }
 
-  .meta {
+  #experience .advisor {
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+  }
+
+  #experience .meta {
     text-align: right;
     flex-shrink: 0;
   }
 
-  .period {
+  #experience .period {
     font-family: var(--font-mono);
     font-size: 0.8rem;
     color: var(--color-text-muted);
     display: block;
   }
 
-  .location {
+  #experience .location {
     font-size: 0.8rem;
     color: var(--color-text-muted);
   }
 
-  ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+  #experience .card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
 
-  li {
+  #experience .work-card {
+    border: 1px solid var(--color-border);
+    border-top: 2px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1.25rem;
+    transition: all 0.3s;
+  }
+
+  #experience .work-card[data-color="accent"] { border-top-color: var(--color-accent); background: var(--color-accent-glow); }
+  #experience .work-card[data-color="amber"] { border-top-color: var(--color-amber); background: var(--color-amber-dim); }
+  #experience .work-card[data-color="cyan"] { border-top-color: var(--color-cyan); background: var(--color-cyan-dim); }
+  #experience .work-card[data-color="purple"] { border-top-color: var(--color-purple); background: var(--color-purple-dim); }
+
+  #experience .work-card:hover {
+    background: var(--color-surface-hover);
+    transform: translateY(-2px);
+  }
+
+  #experience .work-card[data-color="accent"]:hover { border-color: var(--color-accent); }
+  #experience .work-card[data-color="amber"]:hover { border-color: var(--color-amber); }
+  #experience .work-card[data-color="cyan"]:hover { border-color: var(--color-cyan); }
+  #experience .work-card[data-color="purple"]:hover { border-color: var(--color-purple); }
+
+  #experience .work-card[data-color="accent"]:hover h4 { color: var(--color-accent); }
+  #experience .work-card[data-color="amber"]:hover h4 { color: var(--color-amber); }
+  #experience .work-card[data-color="cyan"]:hover h4 { color: var(--color-cyan); }
+  #experience .work-card[data-color="purple"]:hover h4 { color: var(--color-purple); }
+
+  #experience .work-card h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    transition: color 0.2s;
+  }
+
+  #experience .work-card p {
     color: var(--color-text-muted);
-    font-size: 0.9rem;
-    line-height: 1.7;
-    padding-left: 1rem;
-    position: relative;
+    font-size: 0.825rem;
+    line-height: 1.65;
   }
 
-  li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.6em;
-    width: 4px;
-    height: 4px;
-    background: var(--color-accent);
-    border-radius: 50%;
+  #experience .work-card:hover p {
+    color: var(--color-text);
   }
 
   @media (max-width: 640px) {
-    .timeline-header {
+    #experience .card-grid {
+      grid-template-columns: 1fr;
+    }
+    #experience .exp-header {
       flex-direction: column;
     }
-    .meta {
+    #experience .meta {
       text-align: left;
     }
   }

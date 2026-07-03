@@ -5,7 +5,7 @@ const items = [
     role: 'M.S. in Computer Science (AI)',
     period: '2026 - Present',
     type: 'education',
-    flag: '🇺🇸',
+
     months: 6,
   },
   {
@@ -13,7 +13,7 @@ const items = [
     role: 'Robotics Software Engineer, Perception',
     period: 'Jul 2022 - Present',
     type: 'work',
-    flag: '🇺🇸',
+
     months: 48,
   },
   {
@@ -21,7 +21,7 @@ const items = [
     role: 'M.S. in Mechanical Engineering',
     period: '2020 - 2022',
     type: 'education',
-    flag: '🇺🇸',
+
     months: 21,
   },
   {
@@ -29,7 +29,7 @@ const items = [
     role: 'Applied Scientist Intern',
     period: 'May - Aug 2021',
     type: 'work',
-    flag: '🇺🇸',
+
     months: 3,
   },
   {
@@ -37,7 +37,7 @@ const items = [
     role: 'Research Assistant, ROAR Lab',
     period: 'Aug 2019 - Jun 2020',
     type: 'work',
-    flag: '🇸🇬',
+
     months: 10,
   },
   {
@@ -45,7 +45,7 @@ const items = [
     role: 'Visiting Research Student',
     period: 'Jan - May 2019',
     type: 'work',
-    flag: '🇺🇸',
+
     months: 5,
   },
   {
@@ -53,7 +53,7 @@ const items = [
     role: 'B.E. (Hons.) in Mechanical Engineering',
     period: '2015 - 2019',
     type: 'education',
-    flag: '🇮🇳',
+
     months: 48,
   },
 ];
@@ -75,7 +75,7 @@ const heights = items.map(it => Math.max(80, it.months * 2.5));
         <div class:list={['tl-col', 'tl-col-left', item.type === 'education' ? 'tl-active' : 'tl-empty']}>
           <div class:list={['tl-card', item.type]} style={`min-height: ${heights[i]}px;`}>
             <span class="tl-period">{item.period}</span>
-            <h3>{item.label} <span class="tl-flag">{item.flag}</span></h3>
+            <h3>{item.label}</h3>
             <p class="tl-role">{item.role}</p>
           </div>
         </div>
@@ -89,7 +89,7 @@ const heights = items.map(it => Math.max(80, it.months * 2.5));
         <div class:list={['tl-col', 'tl-col-right', item.type === 'work' ? 'tl-active' : 'tl-empty']}>
           <div class:list={['tl-card', item.type]} style={`min-height: ${heights[i]}px;`}>
             <span class="tl-period">{item.period}</span>
-            <h3>{item.label} <span class="tl-flag">{item.flag}</span></h3>
+            <h3>{item.label}</h3>
             <p class="tl-role">{item.role}</p>
           </div>
         </div>
@@ -267,10 +267,6 @@ const heights = items.map(it => Math.max(80, it.months * 2.5));
     font-weight: 600;
     margin-top: 0.25rem;
     transition: color 0.2s;
-  }
-
-  .tl-flag {
-    font-size: 0.8rem;
   }
 
   .tl-role {
