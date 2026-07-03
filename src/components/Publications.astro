@@ -4,21 +4,25 @@ const publications = [
     title: 'Embedded neuromorphic architecture for form+function 4D printing of robotic materials',
     venue: 'IEEE ICRA 2021',
     authors: ['S. Eom', 'P. Abbaraju', 'Y. Xu', '**B. R. Nair**', 'R. M. Voyles'],
+    link: 'https://ieeexplore.ieee.org/abstract/document/9561199',
   },
   {
     title: 'Towards staircase navigation and maintenance using self-reconfigurable service robot',
     venue: 'Expert Systems with Applications, 2025',
     authors: ['A. V. Le', 'T. L. A. Pamela', 'A. A. Hayat', '**B. R. Nair**', 'et al.'],
+    link: 'https://www.sciencedirect.com/science/article/abs/pii/S0957417424028367',
   },
   {
     title: 'Collaborative perception in multi-robot systems: case studies in household cleaning and warehouse operations',
     venue: 'ICRCV 2024',
     authors: ['**B. R. Nair**'],
+    link: 'https://ieeexplore.ieee.org/abstract/document/10758617',
   },
   {
     title: 'Advancing robotic surgery: affordable kinesthetic and tactile feedback solutions for endotrainers',
     venue: 'CCRIS 2024',
     authors: ['**B. R. Nair**', 'T. Aravinthkumar', 'B. Vinod'],
+    link: 'https://www.spiedigitallibrary.org/conference-proceedings-of-spie/13404/134040W/Advancing-robotic-surgery--affordable-kinesthetic-and-tactile-feedback-solutions/10.1117/12.3049953.short',
   },
   {
     title: 'A modular and autonomous staircase-climbing robot with mopping module',
@@ -41,6 +45,12 @@ const publications = [
           </>
         ))}</p>
         <span class="venue">{pub.venue}</span>
+        {pub.link && (
+          <a href={pub.link} target="_blank" rel="noopener noreferrer" class="paper-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Paper
+          </a>
+        )}
       </div>
     ))}
   </div>
@@ -109,9 +119,28 @@ const publications = [
     font-family: var(--font-mono);
     font-size: 0.75rem;
     color: var(--color-cyan);
+    display: block;
+    margin-bottom: 0.5rem;
   }
 
   .authors strong {
     color: var(--color-text);
+  }
+
+  .paper-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.8rem;
+    color: var(--color-cyan);
+    border: 1px solid var(--color-cyan);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+
+  .paper-link:hover {
+    background: var(--color-cyan-dim);
+    color: var(--color-cyan);
   }
 </style>

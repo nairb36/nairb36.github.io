@@ -1,6 +1,7 @@
 ---
 const links = [
   { label: 'About', href: '#about' },
+  { label: 'Journey', href: '#timeline' },
   { label: 'Education', href: '#education' },
   { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },
@@ -54,12 +55,17 @@ const links = [
   .logo {
     font-weight: 700;
     font-size: 1.25rem;
-    color: var(--color-text);
     letter-spacing: -0.02em;
+    background: linear-gradient(135deg, var(--color-accent), var(--color-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .logo:hover {
-    color: var(--color-accent);
+    background: linear-gradient(135deg, var(--color-purple), var(--color-green));
+    -webkit-background-clip: text;
+    background-clip: text;
   }
 
   ul {

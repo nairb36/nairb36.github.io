@@ -60,6 +60,10 @@
     display: flex;
     align-items: center;
     padding: 0 2rem;
+    background:
+      radial-gradient(ellipse at 20% 50%, var(--color-accent-glow) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, var(--color-purple-dim) 0%, transparent 40%),
+      radial-gradient(ellipse at 60% 80%, var(--color-green-dim) 0%, transparent 40%);
   }
 
   .hero-content {
@@ -86,14 +90,16 @@
   .hero-image img {
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid var(--color-border);
-    box-shadow: 0 0 40px var(--color-accent-glow);
-    transition: border-color 0.3s, box-shadow 0.3s;
+    border: 3px solid transparent;
+    background-image: linear-gradient(var(--color-bg), var(--color-bg)), linear-gradient(135deg, var(--color-accent), var(--color-purple), var(--color-green));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    box-shadow: 0 0 40px var(--color-accent-glow), 0 0 80px var(--color-purple-dim);
+    transition: box-shadow 0.3s;
   }
 
   .hero-image img:hover {
-    border-color: var(--color-accent);
-    box-shadow: 0 0 60px var(--color-accent-glow);
+    box-shadow: 0 0 60px var(--color-accent-glow), 0 0 100px var(--color-purple-dim);
   }
 
   @media (max-width: 768px) {
@@ -123,6 +129,10 @@
     letter-spacing: -0.03em;
     line-height: 1.1;
     margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, var(--color-text) 0%, var(--color-accent) 50%, var(--color-purple) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   h2 {
@@ -167,12 +177,12 @@
   }
 
   .btn-primary {
-    background: var(--color-accent);
+    background: linear-gradient(135deg, var(--color-accent), var(--color-purple));
     color: white;
   }
 
   .btn-primary:hover {
-    background: #2563eb;
+    background: linear-gradient(135deg, var(--color-purple), var(--color-accent));
     color: white;
   }
 
